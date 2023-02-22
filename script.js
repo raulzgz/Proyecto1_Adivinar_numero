@@ -25,6 +25,20 @@ console.log(`El numero ingresado es ${number}`);
 // 3er paso: añadir un listener al checkButton y mostrar un mensaje que
 // diga si el numero es mayor o menos en el campo messageField
 
+// codigo refactorizado
+CheckButton.addEventListener("click", function () {
+  const number = Number(guessField.value);
+  if (number === secretNumber) {
+    messageField.textContent = "Ganaste";
+  } else {
+    messageField.textContent =
+      number > secretNumber ? "El numero es menor" : "El numero es mayor";
+    score--;
+    scoreField.textContent = score;
+  }
+});
+
+/* Codigo original sin refactorizar
 CheckButton.addEventListener("click", function () {
   const number = guessField.value;
   console.log(`El numero ingresado es ${number}`);
@@ -40,5 +54,6 @@ CheckButton.addEventListener("click", function () {
     messageField.textContent = "Ganaste";
   }
 });
+*/
 
 //4to paso:
