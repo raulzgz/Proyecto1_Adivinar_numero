@@ -6,11 +6,12 @@ const guessField = document.querySelector(".guess");
 const highscoreField = document.querySelector(".highscore");
 const messageField = document.querySelector(".message");
 const numberField = document.querySelector(".number");
+const bodyField = document.querySelector("body");
 
 // 2do paso: crear las variables que necesitamos
 
 let score = 20;
-const highscore = 0;
+let highscore = 0;
 
 // obtener un numero aleatorio entre 1 y 20
 const MIN_NUMBER = 1;
@@ -25,11 +26,29 @@ console.log(`El numero ingresado es ${number}`);
 // 3er paso: añadir un listener al checkButton y mostrar un mensaje que
 // diga si el numero es mayor o menos en el campo messageField
 
+function mostrarMensaje(mensaje) {
+  messageField.textContent = mensaje;
+}
+
 // codigo refactorizado
 CheckButton.addEventListener("click", function () {
   const number = Number(guessField.value);
+
   if (number === secretNumber) {
-    messageField.textContent = "Ganaste";
+    mostrarMensaje("Ganaste");
+    if (score > highscore) highscore = highscoreField.textContent = score;
+    /* sin refactorizar
+            if (score > highscore) {
+            highscore = score;
+            highscoreField.textContent = score;
+            }
+            */
+    //cambiar el color del fondo del body o lo que corresponda, mostrar el numero secreto en vez de ?
+    bodyField.style.backgroundColor = "#60b347";
+    numberField.textContent = secretNumber;
+  } else if (score === 1) {
+    mostrarMensaje("Perdiste");
+    bodyField.style.backgroundColor = "red";
   } else {
     messageField.textContent =
       number > secretNumber ? "El numero es menor" : "El numero es mayor";
@@ -38,7 +57,7 @@ CheckButton.addEventListener("click", function () {
   }
 });
 
-/* Codigo original sin refactorizar
+/* Codigo original sin refactorizar (le faltan acciones que añadimos despues)
 CheckButton.addEventListener("click", function () {
   const number = guessField.value;
   console.log(`El numero ingresado es ${number}`);
@@ -55,5 +74,3 @@ CheckButton.addEventListener("click", function () {
   }
 });
 */
-
-//4to paso:
