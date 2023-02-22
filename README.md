@@ -1,1 +1,2 @@
-# Proyecto 1 - Adivinar número
+# adivina-numero-Raul
+Juego de adivinar un numero
