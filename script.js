@@ -37,7 +37,10 @@ CheckButton.addEventListener("click", function () {
 
   if (number === secretNumber) {
     mostrarMensaje("Ganaste");
-    if (score > highscore) highscore = highscoreField.textContent = score;
+    if (score > highscore) {
+      highscore = highscoreField.textContent = score;
+      localStorage.setItem("highscore", score);
+    }
     /* sin refactorizar
             if (score > highscore) {
             highscore = score;
@@ -83,6 +86,8 @@ function fnInitApp() {
   score = 20;
   scoreField.textContent = score;
   guessField.value = "";
+  highscore = localStorage.getItem("highscore") || 0;
+  highscoreField.textContent = highscore;
   secretNumber = Math.trunc(Math.random() * MAX_NUMBER) + MIN_NUMBER;
   console.log(`El número secreto es ${secretNumber}`);
   mostrarMensaje("Empieza de nuevo");
