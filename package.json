@@ -4,18 +4,19 @@
   "description": "Juego de adivinar un numero",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "scp -P 22123 /home/alumno/Escritorio/JavaScript/Ejercicios_clase/Proyecto1_Adivinar_numero/*.{html,js, css} raul@raul.certweb.infenlaces.com:home/sitioraul"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raulzgz/adivina-numero-Raul.git"
+    "url": "git+https://github.com/raulzgz/Proyecto1_Adivinar_numero.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/raulzgz/adivina-numero-Raul/issues"
+    "url": "https://github.com/raulzgz/Proyecto1_Adivinar_numero/issues"
   },
-  "homepage": "https://github.com/raulzgz/adivina-numero-Raul#readme",
+  "homepage": "https://github.com/raulzgz/Proyecto1_Adivinar_numero#readme",
   "devDependencies": {
     "eslint": "^8.34.0",
     "eslint-plugin-prettier": "^4.2.1",
